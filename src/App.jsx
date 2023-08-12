@@ -68,23 +68,23 @@ function App() {
   };
   const mediaWidth = window.innerWidth;
 
-  // useEffect(() => {
-  //   const result = async () => {
-  //     const { data: result } = await getLocationData();
-  //     console.log(result);
-  //     const { location, timezone } = result.data;
-  //     const { city, region, country } = location;
+  useEffect(() => {
+    const result = async () => {
+      const { data: result } = await getLocationData();
 
-  //     setLocation({
-  //       city: city.name,
-  //       region: region.name,
-  //       country: country.name,
-  //       code: timezone.code,
-  //       timezone: timezone.id,
-  //     });
-  //   };
-  //   result();
-  // }, []);
+      const { location, timezone } = result.data;
+      const { city, region, country } = location;
+
+      setLocation({
+        city: city.name,
+        region: region.name,
+        country: country.name,
+        code: timezone.code,
+        timezone: timezone.id,
+      });
+    };
+    result();
+  }, []);
 
   const playAudio = () => {
     if (music.paused) {
